@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %} Search {% endblock %}
+
+{% block main %}
+<br>
+<br>
+<div class="container">
+    <form action="/search" method="post">
+        <div class="mb-3">
+            <input class="movie-search" autocomplete="off" name="title" placeholder="Search Movies" type="text">
+        </div>
+    </form>
+
+    {% if error %}
+        <p class="error">:( No movie/show by that title</p>
+    {% endif %}
+
+    {% if movies %}
+        <div class="movie-index">
+            <form action="/movie_page" method="post">
+            {% for movie in movies %}
+                <button class="movie_results" name="movie_id" value="{{ movie['imdbID'] | urlencode }}">{{movie["Title"]}}</button>
+            {% endfor %}
+            </form>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

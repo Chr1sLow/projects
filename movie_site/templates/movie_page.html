@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %} {{movie}} {% endblock %}
+
+{% block main %}
+    <div class="container">
+    {% if movie %}
+        <div class="movie-container">
+            <img class="poster" src={{movie["Poster"]}} alt={{movie["Title"]}}>
+            <h2 class="movie-title">{{movie["Title"]}}</h2>
+        </div>
+        <div class="movie-background">
+            <h3>Synopsis:</h3>
+            <p>{{movie["Plot"]}}</p>
+
+        {% for rating in movie["Ratings"] %}
+            <h3 class="critics">{{rating["Source"]}}: {{rating["Value"]}}</h3>
+        {% endfor %}
+
+        {% if session["user_id"] %}
+            <form action="/movie_page" method="post">
+                <input type="hidden" name="movie_id" value={{movie["imdbID"]}}>
+                <div class="mb-3">
+                    <label for="rating">Rating:</label>
+                    <input class="form-control form-inline rating_input" autocomplete="off" name="rating" type="number" min="1" max="10">
+                    <p class="ten">/10</p>
+                </div>
+                <button class="btn btn-primary" type="submit">Confirm</button>
+            </form>
+        {% else %}
+            <p class="error">Login to rate the movie</p>
+        </div>
+        {% endif %}
+    {% endif %}
+    </div>
+{% endblock %}

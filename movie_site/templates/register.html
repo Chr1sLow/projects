@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block main %}
+
+<br>
+<br>
+<div class="container text-center">
+
+    <div class="mx-auto form">
+    <h1 class="title">Register</h1>
+    {% if taken_name %}
+        <p class="error">Username already taken</p>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">Please enter a {{error}}</p>
+    {% endif %}
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" autocomplete="off" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+        <input class="form-control mx-auto w-auto" autocomplete="off" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-primary"type="submit">Register</button>
+    </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %} Log In {% endblock %}
+
+
+{% block main %}
+
+<br>
+<br>
+<div class="container text-center">
+
+    <div class="mx-auto form">
+        <h1 class="title">Login</h1>
+
+        {% if wrong_login %}
+            <p class="error">Username or Password is wrong</p>
+        {% endif %}
+
+        {% if error %}
+            <p class="error">Please enter a {{error}}</p>
+        {% endif %}
+
+        <form action="/login" method="post">
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" autocomplete="off" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="mb-3">
+            <input class="form-control mx-auto w-auto" autocomplete="off" name="password" placeholder="Password" type="password">
+            </div>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

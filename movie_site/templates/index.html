@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block main %}
+<br>
+<br>
+<div class="container">
+    <h2>Recent Releases</h2>
+
+    {% if movies %}
+    <form action="/movie_page" method="post">
+        <div class="recent_releases_container">
+        {% for movie in movies %}
+        <div class="recent_releases_titles">
+            <button class="recent_releases_poster" name="movie_id" value="{{ movie['imdb_id'] | urlencode }}" type="submit">
+                <img class="recent_releases_poster_image" src=https://image.tmdb.org/t/p/w500/{{movie["poster_path"]}} alt={{movie["title"]}}>
+            </button>
+            <button class="recent_releases" name="movie_id" value="{{ movie['imdb_id'] | urlencode }}" type="submit">{{movie["title"]}}</button>
+        </div>
+        {% endfor %}
+        </div>
+    </form>
+    {% else %}
+        <p class="error">An error occured</p>
+    {% endif %}
+</div>
+{% endblock %}

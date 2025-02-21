@@ -1,0 +1,167 @@
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.error {
+    color: red;
+}
+
+.title {
+    padding-bottom: 20px;
+}
+
+.bar {
+    background-color: #141414;
+}
+
+.bar .nav-link {
+    color: #a0a0a0;
+}
+
+.body {
+    background-color: #0d0d0d;
+    color: #a0a0a0;
+    min-height: 100vh
+}
+
+.form {
+    background-color: #141414;
+    width: 350px;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    border-radius: 25px;
+}
+
+.center-links {
+    padding: 10px;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.movie-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.poster {
+    padding: 15px;
+}
+
+.movie-title {
+    padding-top: 350px;
+}
+
+.movie-button {
+    background-color: transparent;
+    border: none;
+}
+
+.table_title {
+    padding-right: 500px;
+}
+
+.table_poster {
+    max-width: 25%;
+    height: auto;
+}
+
+.movie-search {
+    background-color: transparent;
+    width: 100%;
+    font-size: 30px;
+    border: none;
+    border-bottom: 2px solid #a0a0a0;
+    color: #a0a0a0;
+}
+
+.movie-search:focus {
+    outline: none;
+    border-bottom: 3px solid #a0a0a0;
+}
+
+.movie_results {
+    background-color: transparent;
+    color: #a0a0a0;
+    font-size: 20px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+}
+
+.movie_results:hover {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.critics {
+    padding: 5px;
+}
+
+.rating_input {
+    width: 70px;
+    display: inline;
+    background-color: #141414;
+    color: white;
+    border: none;
+}
+
+.rating_input:focus {
+    background-color: #141414;
+    color: white;
+}
+
+.ten {
+    font-size: 17px;
+    display: inline;
+}
+
+label {
+    font-size: 20px;
+}
+
+.recent_releases_container {
+    display: flex;
+    gap: 20px; /* Space between movie items */
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    padding: 20px;
+}
+
+.recent_releases_titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.recent_releases {
+    display: inline;
+    background-color: transparent;
+    color: #a0a0a0;
+    font-size: 20px;
+    border: none;
+}
+
+.recent_releases:hover {
+    display: inline;
+    color: white;
+    font-weight: bold;
+}
+
+.recent_releases_poster {
+    padding: 0;
+    border: none;
+    background: none;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+}
+
+.recent_releases_poster_image {
+    display: block;
+    width: 150px;
+    height: auto; 
+}

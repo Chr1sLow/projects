@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %} {{user}}'s List {% endblock %}
+
+{% block main %}
+
+<h1 class="container">Welcome {{user}}</h1>
+<br>
+<br>
+<div class="container container-fluid">
+    <h2>Movie List</h2>
+    {% if not session["user_id"] %}
+        <h3 class="error">Login Required</h3>
+    {% else %}
+
+        {% if list %}
+        <table>
+            <tr>
+                <th class="movie_poster"></th>
+                <th class="table_title">Title</th>
+                <th>Rating</th>
+            </tr>
+            {% for movie in list %}
+                <tr>
+                    <form action="/movie_page" method="post">
+                        <th class="movie_poster">
+                            <button class="movie-button" name="movie_id" value="{{movie['imdb_id']}}" type="submit">
+                                <img class="table_poster" src={{movie["poster"]}} alt={{movie["movie_title"]}}>
+                            </button>
+                        </th>
+                        <td><button class="nav-link" name="movie_id" value="{{movie['imdb_id']}}" type="submit">{{movie["movie_title"]}}</button></td>
+                        <td>{{movie["rating"]}}</th>
+                    </form>
+                </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <br>
+        <h3>No movies in list</h3>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
