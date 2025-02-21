@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <h1>Welcome human</h1>
+    {% for balance in balance %}
+    <h3>Balance: {{ balance["cash"] | usd }}</h3>
+    {% endfor %}
+
+    {% if portfolio %}
+    <table>
+        <tr>
+            <th>Stock</th>
+            <th>Shares</th>
+            <th>Current Price</th>
+            <th>Total Worth</th>
+        </tr>
+            {% for stock in portfolio %}
+            <tr>
+                <th>{{ stock["symbol"] }}</th>
+                <th>{{ stock["shares"] }}</th>
+                <th>{{ stock["price"] | usd }}</th>
+                <th>{{ (stock["shares"] * stock["price"]) | usd }}</th>
+            </tr>
+            {% endfor %}
+    </table>
+    {% else %}
+        <h2>You own no stocks</h2>
+    {% endif %}
+{% endblock %}

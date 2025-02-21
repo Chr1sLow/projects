@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <h1>History</h1>
+
+    {% if history %}
+    <table>
+        <tr>
+            <th>Sold/Buy</th>
+            <th>Stock</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+            {% for item in history %}
+            <tr>
+                {% if item["shares"] < 1 %}
+                <th>Sold</th>
+                {% else %}
+                <th>Buy</th>
+                {% endif %}
+
+                <th>{{ item["symbol"] }}</th>
+                
+                {% if item["shares"] < 1 %}
+                <th>{{ item["shares"] * -1 }}</th>
+                {% else %}
+                <th>{{ item["shares"] }}</th>
+                {% endif %}
+
+                <th>{{ item["price"] | usd }}</th>
+                <th>{{ item["timestamp"] }}</th>
+            </tr>
+            {% endfor %}
+    </table>
+    {% else %}
+        <h2>No transactions</h2>
+    {% endif %}
+{% endblock %}
